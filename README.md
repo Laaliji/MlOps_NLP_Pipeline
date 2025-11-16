@@ -1,6 +1,6 @@
-# mlops-nlp-pipeline-demo
+# mlops-nlp-pipeline
 
-End-to-end, free MLOps demo for NLP: FastAPI model, Docker, CI (GitHub Actions), tests, and Hugging Face Spaces deploy template. Perfect for practicing and showing on a CV.
+End-to-end, free MLOps demo for NLP: FastAPI model, Docker, CI (GitHub Actions), tests, and Hugging Face Spaces deploy template.
 
 ## Features
 
