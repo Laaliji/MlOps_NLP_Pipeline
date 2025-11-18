@@ -39,12 +39,14 @@ def health():
 def predict(payload: TextIn):
     REQUEST_COUNT.inc()
     logger.info(f"request_chars={len(payload.text)}")
+    logger.info(f"request_text={payload.text[:100]}...")  # Log first 100 chars
     try:
         result = extract_entities(payload.text)
+        logger.info(f"prediction_successful, entities_count={len(result.get('entities', []))}")
         return result
     except Exception as e:
-        logger.exception("Predict error")
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.exception(f"Predict error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Prediction failed: {str(e)}")
 
 
 # helpful when running locally: uvicorn app.app:app --host 0.0.0.0 --port 8080
